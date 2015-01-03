@@ -134,7 +134,7 @@ int main(int argc, char **argv){
 
 	int addr=0,val=0x55;
 
-	char c;
+	int c;
 	int option_index;
 	int fd;
 
