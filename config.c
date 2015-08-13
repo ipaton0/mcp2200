@@ -389,10 +389,10 @@ int main(int argc, char **argv){
 				if(strncmp(dir->d_name,"hiddev", 6) == 0) {
 					strcpy(temppath, "/dev/usb/");
 					strcat(temppath, dir->d_name);
-					if((fd = open(path, O_RDONLY)) >= 0) {
+					if((fd = open(temppath, O_RDONLY)) >= 0) {
 						ioctl(fd, HIDIOCGSTRING, &mstr);
 						ioctl(fd, HIDIOCGSTRING, &pstr);
-						printf("Path: %s\nManufacturer: %s\nProduct: %s\n",path,mstr.value,pstr.value);
+						printf("Path: %s\nManufacturer: %s\nProduct: %s\n",temppath,mstr.value,pstr.value);
 						if(info) {
 							ioctl(fd, HIDIOCGDEVINFO, &dev);
 							printf("VID: 0x%04hX  PID: 0x%04hX  version: 0x%04hX\n",dev.vendor, dev.product, dev.version);
